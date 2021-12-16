@@ -26,7 +26,7 @@ Note: this code is based on [SeqGAN](https://github.com/LantaoYu/SeqGAN) and [Se
 
 [IPv6 Hitlist](https://ipv6hitlist.github.io/) provides an IPv6 Hitlist Service to publish **responsive IPv6 addresses, aliased prefixes, and non-aliased prefixes** to interested researchers, which could be used as the seed addresses of target generation algorithms like 6GAN.
 
-To use the seed dataset and the aliased prefixes data, please specify the `source_file` and `aliased_prefix_file` path in `train.py`.
+To use the seed dataset and the aliased prefixes data, please specify the `source_file` path and the `aliased_prefix_file` path in `train.py`.
 
 ## Run
 
@@ -36,11 +36,15 @@ python train.py
 
 ## Seed Classification
 
+### Overview
+
 6GAN could freely choose one of the following three classification methods to determine the addressing patterns to be learned by generators:
 
 * `RFC Based` : Possible IPv6 addressing patterns proposed in [RFC 7707](https://www.rfc-editor.org/rfc/rfc7707.html).
 * `Entropy Clustering` : Unsupervised clustering to discover the prefix-level pattern set.
 * `IPv62Vec` : Pattern clusters in the vector space using context learning of address words. 
+
+### Requirements
 
 To use **RFC Based** and **Entropy Clustering** methods, you should first install the [ipv6toolkit](https://github.com/fgont/ipv6toolkit) and [entropy-clustering](https://github.com/pforemski/entropy-clustering) requirements respectively. Then modify the `cmd` codes in the two classifier class in `classifier.py`.
 
@@ -65,7 +69,7 @@ For the **Entropy Clustering** method,  `YOUR_ENTROPY_CLUSTERING_HOMEDIR` should
 
 ## Multi-Pattern Targets
 
-When training the model, the generated targets under different epochs could be find in `data\candidate_set`. Each generator learns the classified seed data in `category_data` respectively and generates the pattern-specific addresses. The candidate lists could be input to the network scanner like [Zmapv6](https://github.com/tumi8/zmap) to obtain the final active IPv6 targets.
+When training the model, the generated targets under different epochs could be find in `data\candidate_set`. Each generator learns the classified seed data in `category_data` respectively and generates the pattern-specific addresses. The candidate lists could be input to the network scanner like [Zmapv6](https://github.com/tumi8/zmap) to obtain the active IPv6 targets.
 
 ## Cite
 
