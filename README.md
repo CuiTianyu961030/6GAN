@@ -54,7 +54,7 @@ For the **RFC Based** method, `YOUR_IPV6TOOLKIT_HOMEDIR` should be the your ipv6
 'cat data/source_data/responsive-addresses.work | YOUR_IPV6TOOLKIT_HOMEDIR/addr6 -i -d > data/save_data/rfc_profile.txt'
 ```
 
-For the **Entropy Clustering** method,  `YOUR_ENTROPY_CLUSTERING_HOMEDIR` should be your entropy-clustering home directory:
+For the **Entropy Clustering** method,  `YOUR_ENTROPY_CLUSTERING_HOMEDIR` is your entropy-clustering home directory:
 
 ```text
 'cat data/source_data/responsive-addresses.data | ' + \
@@ -69,7 +69,7 @@ For the **Entropy Clustering** method,  `YOUR_ENTROPY_CLUSTERING_HOMEDIR` should
 
 ## Multi-Pattern Targets
 
-When training the model, the generated targets under different epochs could be find in `data\candidate_set`. Each generator learns the classified seed data in `category_data` respectively and generates the pattern-specific addresses. The candidate lists could be input to the network scanner like [Zmapv6](https://github.com/tumi8/zmap) to obtain the active IPv6 targets.
+When training the model, the generated targets under different epochs could be find in `data\candidate_set`. Each generator learns the classified data in `category_data` respectively and generates the pattern-specific addresses. The candidate lists could be input to [Zmapv6](https://github.com/tumi8/zmap) to obtain the active IPv6 targets.
 
 ## Cite
 
